@@ -31,7 +31,7 @@
                         <Image url="@../../../img/Panda-removebg-preview.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="1470.0" layoutY="20.0" mnemonicParsing="false" onAction="#loginButton" prefHeight="50.0" prefWidth="252.0" style="-fx-background-color: rgba(229, 89, 50, 1); -fx-background-radius: 20;">
+                  <Button layoutX="1470.0" layoutY="20.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="50.0" prefWidth="252.0" style="-fx-background-color: rgba(229, 89, 50, 1); -fx-background-radius: 20;">
                      <graphic>
                         <Pane prefHeight="36.0" prefWidth="227.0">
                            <children>
@@ -60,9 +60,15 @@
                         <Font name="Berlin Sans FB Demi Bold" size="60.0" />
                      </font>
                   </Text>
+               </children>
+            </Pane>
+         </center>
+         <bottom>
+            <Pane prefHeight="60.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+               <children>
 
-                  <Line endX="1414.0" endY="10.0" layoutX="306.0" layoutY="919.0" startX="-106.0" startY="10.0" stroke="WHITE" />
-                  <Pane layoutX="860.0" layoutY="935.0" prefHeight="41.0" prefWidth="200.0">
+                        <Line endX="1414.0" endY="10.0" layoutX="306.0" layoutY="-10.0" startX="-106.0" startY="10.0" stroke="WHITE" />
+                  <Pane layoutX="860.0" layoutY="10.0" prefHeight="41.0" prefWidth="200.0">
                      <children>
                         <Text fill="WHITE" layoutX="28.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Terms">
                            <font>
@@ -81,11 +87,7 @@
                         </Text>
                      </children>
                   </Pane>
-               </children>
-            </Pane>
-         </center>
-         <bottom>
-            <Pane prefHeight="0.0" prefWidth="1920.0" BorderPane.alignment="CENTER" />
+               </children></Pane>
          </bottom>
       </BorderPane>
    </children>

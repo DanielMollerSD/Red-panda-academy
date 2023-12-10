@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class HelloController {
     @FXML
-    private void loginButton(ActionEvent event) throws IOException {
+    private void onLoginButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
         Parent newTemplate = fxmlLoader.load();
 

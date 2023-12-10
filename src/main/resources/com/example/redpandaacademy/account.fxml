@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="1080.0" prefWidth="1920.0">
          <top>
@@ -56,26 +56,6 @@
                         <Font name="Berlin Sans FB Demi Bold" size="60.0" />
                      </font>
                   </Text>
-                  <Line endX="1414.0" endY="10.0" layoutX="106.0" layoutY="919.0" startX="-106.0" startY="10.0" stroke="#a5a5a5" />
-                  <Pane layoutX="660.0" layoutY="935.0" prefHeight="41.0" prefWidth="200.0">
-                     <children>
-                        <Text layoutX="28.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Terms">
-                           <font>
-                              <Font name="Berlin Sans FB Demi Bold" size="16.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="86.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faq">
-                           <font>
-                              <Font name="Berlin Sans FB Demi Bold" size="16.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="130.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
-                           <font>
-                              <Font name="Berlin Sans FB Demi Bold" size="16.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Pane>
                   <TextField layoutX="128.0" layoutY="246.0" prefHeight="80.0" prefWidth="600.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" />
                   <Text layoutX="128.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="600.984375">
                      <font>
@@ -130,7 +110,30 @@
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
          </right>
          <bottom>
-            <Pane prefHeight="0.0" prefWidth="1920.0" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="60.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+               <children>
+
+                  <Line endX="1414.0" endY="10.0" layoutX="306.0" layoutY="-10.0" startX="-106.0" startY="10.0" stroke="WHITE" />
+                  <Pane layoutX="860.0" layoutY="10.0" prefHeight="41.0" prefWidth="200.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="28.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Terms">
+                           <font>
+                              <Font name="Berlin Sans FB Demi Bold" size="16.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="86.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faq">
+                           <font>
+                              <Font name="Berlin Sans FB Demi Bold" size="16.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="130.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
+                           <font>
+                              <Font name="Berlin Sans FB Demi Bold" size="16.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </children></Pane>
          </bottom>
       </BorderPane>
    </children>
