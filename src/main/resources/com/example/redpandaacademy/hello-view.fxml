@@ -10,11 +10,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" opacity="0.8" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../../../img/Fantasy Forest.jpg" />
+         </image>
+      </ImageView>
       <BorderPane prefHeight="1080.0" prefWidth="1920.0">
          <top>
-            <Pane prefHeight="90.0" style="-fx-background-color: linear-gradient(to bottom, #ff7200, #f52e00);" BorderPane.alignment="CENTER">
+            <Pane prefHeight="90.0" style="-fx-background-color: rgba(26, 26, 26, 1);" BorderPane.alignment="CENTER">
                <children>
                   <Text fill="WHITE" layoutX="266.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red panda academy">
                      <font>
@@ -26,27 +31,35 @@
                         <Image url="@../../../img/Panda-removebg-preview.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="1470.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="252.0" style="-fx-background-color: #282828; -fx-background-radius: 20;" />
-                  <Pane layoutX="1483.0" layoutY="27.0" prefHeight="36.0" prefWidth="227.0">
-                     <children>
-                        <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="192.0" layoutY="3.0">
-                           <image>
-                              <Image url="@../../../img/User-Icon white.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login/Register">
-                           <font>
-                              <Font name="Berlin Sans FB Demi Bold" size="26.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Pane>
+                  <Button layoutX="1470.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="252.0" style="-fx-background-color: rgba(229, 89, 50, 1); -fx-background-radius: 20;">
+                     <graphic>
+                        <Pane prefHeight="36.0" prefWidth="227.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="191.0" layoutY="6.0">
+                                 <image>
+                                    <Image url="@../../../img/User-Icon white.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" layoutX="13.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login/Register">
+                                 <font>
+                                    <Font name="Berlin Sans FB Demi Bold" size="26.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                     </graphic>
+                  </Button>
                </children>
             </Pane>
          </top>
          <center>
-            <Pane prefHeight="200.0" prefWidth="1343.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="200.0" prefWidth="1343.0" BorderPane.alignment="CENTER">
                <children>
+                  <Text fill="WHITE" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="De map">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="60.0" />
+                     </font>
+                  </Text>
                   <Pane layoutY="168.0" prefHeight="170.0" prefWidth="760.0" style="-fx-background-color: linear-gradient(to bottom, #d2d6f1, #acb0cc); -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 1;">
                      <children>
                         <Pane layoutX="14.0" layoutY="15.0" prefHeight="140.0" prefWidth="140.0" style="-fx-background-color: #d2df6f1; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;">
@@ -118,7 +131,8 @@
                                     <Image url="@../../../img/dragon.png" />
                                  </image>
                               </ImageView>
-                           </children></Pane>
+                           </children>
+                        </Pane>
                         <Pane layoutX="170.0" layoutY="111.0" prefHeight="45.0" prefWidth="420.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;">
                            <children>
                               <Pane prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #8d8d8d; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" />
@@ -136,28 +150,24 @@
                                     <Image url="@../../../img/Lock-icon%20white.png" />
                                  </image>
                               </ImageView>
-                           </graphic></Button>
+                           </graphic>
+                        </Button>
                      </children>
                   </Pane>
-                  <Text layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="De map">
-                     <font>
-                        <Font name="Berlin Sans FB Demi Bold" size="60.0" />
-                     </font>
-                  </Text>
-                  <Line endX="1414.0" endY="10.0" layoutX="106.0" layoutY="919.0" startX="-106.0" startY="10.0" stroke="#a5a5a5" />
-                  <Pane layoutX="660.0" layoutY="935.0" prefHeight="41.0" prefWidth="200.0">
+                  <Line endX="1414.0" endY="10.0" layoutX="107.0" layoutY="919.0" startX="-106.0" startY="10.0" stroke="WHITE" />
+                  <Pane layoutX="661.0" layoutY="935.0" prefHeight="41.0" prefWidth="200.0">
                      <children>
-                        <Text layoutX="28.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Terms">
+                        <Text fill="WHITE" layoutX="28.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Terms">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="16.0" />
                            </font>
                         </Text>
-                        <Text layoutX="86.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faq">
+                        <Text fill="WHITE" layoutX="86.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faq">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="16.0" />
                            </font>
                         </Text>
-                        <Text layoutX="130.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
+                        <Text fill="WHITE" layoutX="130.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="16.0" />
                            </font>
@@ -168,10 +178,10 @@
             </Pane>
          </center>
          <left>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </left>
          <right>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </right>
          <bottom>
             <Pane prefHeight="0.0" prefWidth="1920.0" BorderPane.alignment="CENTER" />

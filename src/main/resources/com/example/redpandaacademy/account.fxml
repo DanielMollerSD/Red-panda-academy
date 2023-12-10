@@ -15,7 +15,7 @@
    <children>
       <BorderPane prefHeight="1080.0" prefWidth="1920.0">
          <top>
-            <Pane prefHeight="90.0" style="-fx-background-color: linear-gradient(to bottom, #ff7200, #f52e00);" BorderPane.alignment="CENTER">
+            <Pane prefHeight="90.0" style="-fx-background-color: rgba(26, 26, 26, 1);" BorderPane.alignment="CENTER">
                <children>
                   <Text fill="WHITE" layoutX="266.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red panda academy">
                      <font>
@@ -27,21 +27,24 @@
                         <Image url="@../../../img/Panda-removebg-preview.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="1470.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="252.0" style="-fx-background-color: #282828; -fx-background-radius: 20;" />
-                  <Pane layoutX="1483.0" layoutY="27.0" prefHeight="36.0" prefWidth="227.0">
-                     <children>
-                        <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="192.0" layoutY="3.0">
-                           <image>
-                              <Image url="@../../../img/User-Icon white.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login/Register">
-                           <font>
-                              <Font name="Berlin Sans FB Demi Bold" size="26.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Pane>
+                  <Button layoutX="1470.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="252.0" style="-fx-background-color: rgba(229, 89, 50, 1); -fx-background-radius: 20;">
+                     <graphic>
+                        <Pane prefHeight="36.0" prefWidth="227.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="191.0" layoutY="6.0">
+                                 <image>
+                                    <Image url="@../../../img/User-Icon white.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" layoutX="13.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login/Register">
+                                 <font>
+                                    <Font name="Berlin Sans FB Demi Bold" size="26.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                     </graphic>
+                  </Button>
                </children>
             </Pane>
          </top>

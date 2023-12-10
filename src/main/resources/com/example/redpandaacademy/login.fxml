@@ -12,11 +12,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redpandaacademy.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redpandaacademy.LoginController">
    <children>
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" opacity="0.8" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../../../img/Fantasy Forest.jpg" />
+         </image>
+      </ImageView>
       <BorderPane prefHeight="1080.0" prefWidth="1920.0">
          <top>
-            <Pane prefHeight="90.0" style="-fx-background-color: linear-gradient(to bottom, #ff7200, #f52e00);" BorderPane.alignment="CENTER">
+            <Pane prefHeight="90.0" style="-fx-background-color: rgba(26, 26, 26, 1);" BorderPane.alignment="CENTER">
                <children>
                   <Text fill="WHITE" layoutX="266.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red panda academy">
                      <font>
@@ -28,90 +33,88 @@
                         <Image url="@../../../img/Panda-removebg-preview.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="1470.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="252.0" style="-fx-background-color: #282828; -fx-background-radius: 20;" />
-                  <Pane layoutX="1483.0" layoutY="27.0" prefHeight="36.0" prefWidth="227.0">
-                     <children>
-                        <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="192.0" layoutY="3.0">
-                           <image>
-                              <Image url="@../../../img/User-Icon white.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login/Register">
-                           <font>
-                              <Font name="Berlin Sans FB Demi Bold" size="26.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Pane>
+                  <Button layoutX="1470.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="252.0" style="-fx-background-color: rgba(229, 89, 50, 1); -fx-background-radius: 20;">
+                     <graphic>
+                        <Pane prefHeight="36.0" prefWidth="227.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="191.0" layoutY="6.0">
+                                 <image>
+                                    <Image url="@../../../img/User-Icon white.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" layoutX="13.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login/Register">
+                                 <font>
+                                    <Font name="Berlin Sans FB Demi Bold" size="26.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                     </graphic>
+                  </Button>
                </children>
             </Pane>
          </top>
          <center>
-            <Pane prefHeight="200.0" prefWidth="1343.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="200.0" prefWidth="1343.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="993.0" fitWidth="1921.0" opacity="0.81" pickOnBounds="true" smooth="false">
-                     <image>
-                        <Image url="@../../../../../../../../Downloads/forest.jpg" />
-                     </image>
-                  </ImageView>
-                  <Text fill="WHITE" layoutX="550.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+                  <Text fill="WHITE" layoutX="550.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="80.0" />
                      </font>
                   </Text>
-                  <Line endX="1814.0001220703125" endY="10.0" layoutX="106.0" layoutY="919.0" startX="-106.0" startY="10.0" stroke="#a5a5a5" />
-                  <Pane layoutX="550.0" layoutY="142.0" prefHeight="611.0" prefWidth="820.0" style="-fx-background-color: rgba(51,51,51,0.8); -fx-background-radius: 20px;">
+                  <Pane layoutX="550.0" layoutY="143.0" prefHeight="611.0" prefWidth="820.0" style="-fx-background-color: rgba(20, 20, 20, 0.8); -fx-background-radius: 20px;">
                      <children>
-                        <TextField layoutX="108.0" layoutY="84.0" prefHeight="45.0" prefWidth="605.0" promptText="Email invullen" style="-fx-background-color: white; -fx-background-radius: 20px;">
+                        <TextField layoutX="108.0" layoutY="113.0" prefHeight="45.0" prefWidth="605.0" promptText="Email invullen" style="-fx-background-color: white; -fx-background-radius: 20px;">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </TextField>
-                        <Text fill="WHITE" layoutX="120.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="172.45247533745615">
+                        <Text fill="WHITE" layoutX="120.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="172.45247533745615">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="48.0" />
                            </font>
                         </Text>
-                        <TextField layoutX="108.0" layoutY="259.0" prefHeight="45.0" prefWidth="605.0" promptText="Password invullen" style="-fx-background-color: white; -fx-background-radius: 20px;">
+                        <TextField layoutX="108.0" layoutY="288.0" prefHeight="45.0" prefWidth="605.0" promptText="Password invullen" style="-fx-background-color: white; -fx-background-radius: 20px;">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </TextField>
-                        <Text fill="WHITE" layoutX="116.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="589.2523410601124">
+                        <Text fill="WHITE" layoutX="116.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="589.2523410601124">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="48.0" />
                            </font>
                         </Text>
-                        <Button id="loginbutton" layoutX="288.0" layoutY="476.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="244.0" style="-fx-background-color: linear-gradient(to bottom, #8bfa76, #84ff5e); -fx-background-radius: 15px;" text="Login" textFill="WHITE">
+                        <Button id="loginbutton" layoutX="288.0" layoutY="505.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="244.0" style="-fx-background-color: linear-gradient(to bottom, #80e66c, #7aeb58); -fx-background-radius: 15px;" text="Login" textFill="WHITE">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="20.0" />
                            </font>
                         </Button>
-                        <Hyperlink layoutX="116.0" layoutY="400.0" text="Wachtwoord vergeten?" textFill="WHITE" underline="true">
+                        <Hyperlink layoutX="116.0" layoutY="429.0" text="Wachtwoord vergeten?" textFill="WHITE" underline="true">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="24.0" />
                            </font>
                         </Hyperlink>
-                        <Hyperlink layoutX="120.0" layoutY="361.0" text="Maak account" textFill="WHITE" underline="true">
+                        <Hyperlink layoutX="116.0" layoutY="392.0" text="Maak account" textFill="WHITE" underline="true">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="24.0" />
                            </font>
                         </Hyperlink>
                      </children>
                   </Pane>
-                  <Pane layoutX="860.0" layoutY="940.0" prefHeight="41.0" prefWidth="200.0">
+                  <Line endX="1414.0" endY="10.0" layoutX="306.0" layoutY="919.0" startX="-106.0" startY="10.0" stroke="WHITE" />
+                  <Pane layoutX="860.0" layoutY="935.0" prefHeight="41.0" prefWidth="200.0">
                      <children>
-                        <Text layoutX="28.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Terms">
+                        <Text fill="WHITE" layoutX="28.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Terms">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="16.0" />
                            </font>
                         </Text>
-                        <Text layoutX="86.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faq">
+                        <Text fill="WHITE" layoutX="86.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faq">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="16.0" />
                            </font>
                         </Text>
-                        <Text layoutX="130.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
+                        <Text fill="WHITE" layoutX="130.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="16.0" />
                            </font>
