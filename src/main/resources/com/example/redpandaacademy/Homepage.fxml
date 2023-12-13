@@ -55,22 +55,27 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="1343.0" BorderPane.alignment="CENTER">
                <children>
-                  <Text fill="WHITE" layoutX="443.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="De gratis, leuke en effectieve manier om de Nederlandse taal te leren!" wrappingWidth="978.8736267089844">
+                  <Text fill="WHITE" layoutX="792.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="De gratis, leuke en effectieve manier om de Nederlandse taal te leren!" wrappingWidth="869.0069274902344">
                      <font>
-                        <Font name="Berlin Sans FB Demi Bold" size="60.0" />
+                        <Font name="Berlin Sans FB Demi Bold" size="65.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="453.0" fitWidth="731.0" layoutX="235.0" layoutY="374.0">
-                     <image>
-                        <Image url="@../../../img/Homepage.png" />
-                     </image>
-                  </ImageView>
-                  <Button layoutX="941.0" layoutY="462.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="485.0" style="-fx-background-color: linear-gradient(to bottom, #80e66c, #7aeb58); -fx-background-radius: 15px;" text="Begin nu" textFill="WHITE">
+                  <Pane id="imagepane" layoutX="181.0" layoutY="383.0" prefHeight="464.0" prefWidth="725.0" style="border-radius: 30px; -fx-background-radius: 20px;">
+                     <children>
+                        <Pane id="imagepage2" opacity="0.0" prefHeight="460.0" prefWidth="720.0" style="-fx-background-color: white; border-radius: 20px;" />
+                        <ImageView id="imagekid" fitHeight="461.0" fitWidth="724.0">
+                           <image>
+                              <Image url="@../../../img/Homepage.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Button layoutX="962.0" layoutY="429.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="485.0" style="-fx-background-color: linear-gradient(to bottom, #80e66c, #7aeb58); -fx-background-radius: 15px;" text="Begin nu" textFill="WHITE">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="60.0" />
                      </font>
                   </Button>
-                  <Button layoutX="941.0" layoutY="642.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="485.0" style="-fx-background-color: white; -fx-background-radius: 15px;" text="Ik heb al een account" textFill="#6483ff">
+                  <Button layoutX="962.0" layoutY="609.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="485.0" style="-fx-background-color: white; -fx-background-radius: 15px;" text="Ik heb al een account" textFill="#6483ff">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="43.0" />
                      </font>
