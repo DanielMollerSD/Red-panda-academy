@@ -28,6 +28,7 @@ public class MicrobitController {
                     // Process the received data
                     if (numRead > 0) {
                         String buttonData = new String(buffer, 0, numRead).trim();
+
                         processButtonPress(buttonData);
                     }
                 }
