@@ -31,4 +31,13 @@ public class LoginController implements Initializable {
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
+    @FXML
+    public void onWachtwoordvergetenButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("forgotpassword.fxml"));
+        Parent newTemplate = fxmlLoader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        stage.setScene(new Scene(newTemplate, 1920, 1080));
+        stage.show();
+    }
 }
