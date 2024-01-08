@@ -34,7 +34,7 @@
                         <Image url="@../../../img/Panda-removebg-preview.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="1470.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="252.0" style="-fx-background-color: rgba(229, 89, 50, 1); -fx-background-radius: 20;">
+                  <Button layoutX="1470.0" layoutY="20.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="50.0" prefWidth="252.0" style="-fx-background-color: rgba(229, 89, 50, 1); -fx-background-radius: 20;">
                      <graphic>
                         <Pane prefHeight="36.0" prefWidth="227.0">
                            <children>
@@ -52,6 +52,7 @@
                         </Pane>
                      </graphic>
                   </Button>
+                  <Hyperlink id="LogoBox" layoutX="204.0" layoutY="15.0" onAction="#onLogoButtonClick" prefHeight="60.0" prefWidth="306.0" style="-fx-border-color: transparent;" />
                </children>
             </Pane>
          </top>
