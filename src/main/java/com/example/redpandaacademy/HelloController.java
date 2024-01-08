@@ -20,4 +20,22 @@ public class HelloController {
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
+    @FXML
+    private void onBeginnuButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("register.fxml"));
+        Parent newTemplate = fxmlLoader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        stage.setScene(new Scene(newTemplate, 1920, 1080));
+        stage.show();
+    }
+    @FXML
+    private void onHebaccountButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
+        Parent newTemplate = fxmlLoader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        stage.setScene(new Scene(newTemplate, 1920, 1080));
+        stage.show();
+    }
 }

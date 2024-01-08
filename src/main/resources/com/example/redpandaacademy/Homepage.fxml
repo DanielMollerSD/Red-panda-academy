@@ -63,19 +63,20 @@
                   <Pane id="imagepane" layoutX="181.0" layoutY="383.0" prefHeight="464.0" prefWidth="725.0" style="border-radius: 30px; -fx-background-radius: 20px;">
                      <children>
                         <Pane id="imagepage2" opacity="0.0" prefHeight="460.0" prefWidth="720.0" style="-fx-background-color: white; border-radius: 20px;" />
-                        <ImageView id="imagekid" fitHeight="461.0" fitWidth="724.0">
+                        <ImageView id="imagekid" fitHeight="461.0" fitWidth="726.0">
                            <image>
                               <Image url="@../../../img/Homepage.png" />
                            </image>
                         </ImageView>
+                        <Pane id="page1000" layoutX="436.0" layoutY="-24.0" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </Pane>
-                  <Button layoutX="962.0" layoutY="429.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="485.0" style="-fx-background-color: linear-gradient(to bottom, #80e66c, #7aeb58); -fx-background-radius: 15px;" text="Begin nu" textFill="WHITE">
+                  <Button layoutX="962.0" layoutY="429.0" mnemonicParsing="false" onAction="#onBeginnuButtonClick" prefHeight="79.0" prefWidth="485.0" style="-fx-background-color: linear-gradient(to bottom, #80e66c, #7aeb58); -fx-background-radius: 15px;" text="Begin nu" textFill="WHITE">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="60.0" />
                      </font>
                   </Button>
-                  <Button layoutX="962.0" layoutY="609.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="485.0" style="-fx-background-color: white; -fx-background-radius: 15px;" text="Ik heb al een account" textFill="#6483ff">
+                  <Button layoutX="962.0" layoutY="609.0" mnemonicParsing="false" onAction="#onHebaccountButtonClick" prefHeight="110.0" prefWidth="485.0" style="-fx-background-color: white; -fx-background-radius: 15px;" text="Ik heb al een account" textFill="#6483ff">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="43.0" />
                      </font>

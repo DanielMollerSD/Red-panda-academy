@@ -12,6 +12,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Homepage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
+        scene.getStylesheets().add(getClass().getResource("/css/homepage.css").toExternalForm());
         setFullscreen(stage, scene);
         stage.setTitle("Hello!");
         stage.setScene(scene);
@@ -20,7 +21,7 @@ public class HelloApplication extends Application {
 
     private void setFullscreen(Stage stage, Scene scene) {
         stage.setFullScreen(true);
-        
+
         stage.sceneProperty().addListener((observable, oldScene, newScene) -> {
             if (newScene != null) {
                 setFullscreen(stage, newScene);
