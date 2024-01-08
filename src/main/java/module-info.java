@@ -6,6 +6,7 @@ module com.example.redpandaacademy {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires java.logging;
+    requires com.fazecast.jSerialComm;
 
     opens com.example.redpandaacademy to javafx.fxml;
     exports com.example.redpandaacademy;
