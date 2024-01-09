@@ -9,7 +9,7 @@ public class MicrobitController {
         SerialPort microBitPort = null;
         for (SerialPort port : ports) {
             System.out.println(port.getDescriptivePortName());
-            if (port.getDescriptivePortName().contains("COM5")) {
+            if (port.getDescriptivePortName().contains("COM")) {
                 microBitPort = port;
                 break;
             }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redpandaacademy.HelloViewController">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" opacity="0.8" pickOnBounds="true" smooth="false">
          <image>
@@ -30,8 +31,9 @@
                      <image>
                         <Image url="@../../../img/Panda-removebg-preview.png" />
                      </image>
+
                   </ImageView>
-                  <Button layoutX="1470.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="252.0" style="-fx-background-color: rgba(229, 89, 50, 1); -fx-background-radius: 20;">
+                  <Button layoutX="1470.0" layoutY="20.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="50.0" prefWidth="252.0" style="-fx-background-color: rgba(229, 89, 50, 1); -fx-background-radius: 20;">
                      <graphic>
                         <Pane prefHeight="36.0" prefWidth="227.0">
                            <children>
@@ -49,6 +51,7 @@
                         </Pane>
                      </graphic>
                   </Button>
+                  <Hyperlink id="LogoBox" layoutX="204.0" layoutY="15.0" onAction="#onLogoButtonClick" prefHeight="60.0" prefWidth="306.0" style="-fx-border-color: transparent;" />
                </children>
             </Pane>
          </top>
@@ -62,7 +65,7 @@
                   </Text>
                   <Pane layoutY="168.0" prefHeight="170.0" prefWidth="760.0" style="-fx-background-color: linear-gradient(to bottom, #d2d6f1, #acb0cc); -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 1;">
                      <children>
-                        <Pane layoutX="14.0" layoutY="15.0" prefHeight="140.0" prefWidth="140.0" style="-fx-background-color: #d2df6f1; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;">
+                        <Pane layoutX="14.0" layoutY="15.0" prefHeight="140.0" prefWidth="140.0" style="-fx-background-color: #acb0cc; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;">
                            <children>
                               <ImageView fitHeight="140.0" fitWidth="140.0">
                                  <image>
