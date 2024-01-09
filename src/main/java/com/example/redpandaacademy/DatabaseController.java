@@ -119,7 +119,7 @@ public class DatabaseController {
 
     private static Properties readConfig() {
         Properties properties = new Properties();
-        try (FileInputStream input = new FileInputStream(".env")) {
+        try (FileInputStream input = new FileInputStream(".env.template")) {
             properties.load(input);
         } catch (IOException e) {
             e.printStackTrace();
