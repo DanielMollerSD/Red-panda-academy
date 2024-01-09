@@ -102,7 +102,8 @@ public class DatabaseController {
                     "`aantal_antwoorden` int(10) NOT NULL, " +
                     "`leerprogrammaID` char(5) NOT NULL, " +
                     "PRIMARY KEY (`vraagID`), " +
-                    "KEY `leerprogrammaID` (`leerprogrammaID`))");
+                    "FOREIGN KEY (leerprogrammaID) REFERENCES leerprogramma(leerprogrammaID))");
+
 
             statement.executeUpdate("CREATE TABLE `progressie` (" +
                     "`progressieID` int(5) NOT NULL, " +
@@ -110,8 +111,8 @@ public class DatabaseController {
                     "`useraccountID` int(5) NOT NULL, " +
                     "`vraagID` int(10) NOT NULL, " +
                     "PRIMARY KEY (`progressieID`), " +
-                    "KEY `useraccountID` (`useraccountID`), " +
-                    "KEY `vraagID` (`vraagID`))");
+                    "FOREIGN KEY (useraccountID) REFERENCES useraccount(useraccountID)," +
+                    "FOREIGN KEY (vraagID) REFERENCES vraag(vraagID))");
 
             connection.close();
 
