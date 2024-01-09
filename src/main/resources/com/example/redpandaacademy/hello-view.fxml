@@ -84,7 +84,7 @@
                               <Font name="Berlin Sans FB Demi Bold" size="45.0" />
                            </font>
                         </Text>
-                        <Button layoutX="606.0" layoutY="110.0" minWidth="53.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="140.0" style="-fx-background-color: #684fa2; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;">
+                        <Button id="Button1" layoutX="606.0" layoutY="110.0" minWidth="53.0" mnemonicParsing="false"  prefHeight="45.0" prefWidth="140.0" style="-fx-background-color: #684fa2; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;">
                            <graphic>
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Start">
                                  <font>
@@ -173,21 +173,21 @@
                   <Line endX="1414.0" endY="10.0" layoutX="306.0" layoutY="-10.0" startX="-106.0" startY="10.0" stroke="WHITE" />
                   <Pane layoutX="860.0" layoutY="10.0" prefHeight="41.0" prefWidth="200.0">
                      <children>
-                        <Text fill="WHITE" layoutX="28.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Terms">
+                        <Hyperlink id="TermsButton" layoutX="23.0" layoutY="4.0" onAction="#onTermsButtonClick" prefHeight="32.0" prefWidth="53.0" style="-fx-border-color: transparent; -fx-underline: false; -fx-text-fill: white;" text="Terms" textFill="WHITE">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="16.0" />
                            </font>
-                        </Text>
-                        <Text fill="WHITE" layoutX="86.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faq">
+                        </Hyperlink>
+                        <Hyperlink id="FaqButton" layoutX="81.0" layoutY="4.0" onAction="#onFaqButtonClick" prefHeight="32.0" prefWidth="40.0" style="-fx-border-color: transparent; -fx-underline: false; -fx-text-fill: white;" text="Faq" textFill="WHITE">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="16.0" />
                            </font>
-                        </Text>
-                        <Text fill="WHITE" layoutX="130.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
+                        </Hyperlink>
+                        <Hyperlink id="ContactButton" layoutX="125.0" layoutY="4.0" onAction="#onContactButtonClick" prefHeight="32.0" prefWidth="66.0" style="-fx-border-color: transparent; -fx-underline: false; -fx-text-fill: white;" text="Contact" textFill="WHITE">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="16.0" />
                            </font>
-                        </Text>
+                        </Hyperlink>
                      </children>
                   </Pane>
                </children></Pane>

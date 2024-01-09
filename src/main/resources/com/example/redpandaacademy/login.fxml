@@ -59,36 +59,36 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="1343.0" BorderPane.alignment="CENTER">
                <children>
-                  <Text fill="WHITE" layoutX="550.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+                  <Text fill="WHITE" layoutX="550.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inloggen">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="80.0" />
                      </font>
                   </Text>
                   <Pane layoutX="550.0" layoutY="143.0" prefHeight="611.0" prefWidth="820.0" style="-fx-background-color: rgba(20, 20, 20, 0.8); -fx-background-radius: 20px;">
                      <children>
-                        <TextField layoutX="108.0" layoutY="113.0" prefHeight="45.0" prefWidth="605.0" promptText="Email invullen" style="-fx-background-color: white; -fx-background-radius: 20px;">
+                        <TextField layoutX="108.0" layoutY="113.0" prefHeight="45.0" prefWidth="605.0" promptText="E-mail invullen" style="-fx-background-color: white; -fx-background-radius: 20px;">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </TextField>
-                        <Text fill="WHITE" layoutX="120.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="172.45247533745615">
+                        <Text fill="WHITE" layoutX="120.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail" wrappingWidth="172.45247533745615">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="48.0" />
                            </font>
                         </Text>
-                        <PasswordField layoutX="108.0" layoutY="288.0" prefHeight="65.8" prefWidth="605.0" promptText="Password invullen" style="-fx-background-color: white; -fx-background-radius: 20px;">
+                        <PasswordField layoutX="108.0" layoutY="288.0" prefHeight="65.8" prefWidth="605.0" promptText="Wachtwoord invullen" style="-fx-background-color: white; -fx-background-radius: 20px;">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </PasswordField>
-                        <Text fill="WHITE" layoutX="116.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="589.2523410601124">
+                        <Text fill="WHITE" layoutX="116.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wachtwoord" wrappingWidth="589.2523410601124">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="48.0" />
                            </font>
                         </Text>
-                        <Button id="loginbutton" layoutX="288.0" layoutY="505.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="244.0" style="-fx-background-color: linear-gradient(to bottom, #80e66c, #7aeb58); -fx-background-radius: 15px;" text="Login" textFill="WHITE">
+                        <Button id="loginbutton" layoutX="288.0" layoutY="505.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="244.0" style="-fx-background-color: linear-gradient(to bottom, #80e66c, #7aeb58); -fx-background-radius: 15px;" text="Inloggen" textFill="WHITE">
                            <font>
-                              <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+                              <Font name="Berlin Sans FB Demi Bold" size="30.0" />
                            </font>
                         </Button>
                         <Hyperlink layoutX="116.0" layoutY="429.0" onAction="#onWachtwoordvergetenButtonClick" text="Wachtwoord vergeten?" textFill="WHITE" underline="true">
@@ -113,21 +113,21 @@
                   <Line endX="1414.0" endY="10.0" layoutX="306.0" layoutY="-10.0" startX="-106.0" startY="10.0" stroke="WHITE" />
                   <Pane layoutX="860.0" layoutY="10.0" prefHeight="41.0" prefWidth="200.0">
                      <children>
-                        <Text fill="WHITE" layoutX="28.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Terms">
+                        <Hyperlink id="TermsButton" layoutX="23.0" layoutY="4.0" onAction="#onTermsButtonClick" prefHeight="32.0" prefWidth="53.0" style="-fx-border-color: transparent; -fx-underline: false; -fx-text-fill: white;" text="Terms" textFill="WHITE">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="16.0" />
                            </font>
-                        </Text>
-                        <Text fill="WHITE" layoutX="86.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faq">
+                        </Hyperlink>
+                        <Hyperlink id="FaqButton" layoutX="81.0" layoutY="4.0" onAction="#onFaqButtonClick" prefHeight="32.0" prefWidth="40.0" style="-fx-border-color: transparent; -fx-underline: false; -fx-text-fill: white;" text="Faq" textFill="WHITE">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="16.0" />
                            </font>
-                        </Text>
-                        <Text fill="WHITE" layoutX="130.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
+                        </Hyperlink>
+                        <Hyperlink id="ContactButton" layoutX="125.0" layoutY="4.0" onAction="#onContactButtonClick" prefHeight="32.0" prefWidth="66.0" style="-fx-border-color: transparent; -fx-underline: false; -fx-text-fill: white;" text="Contact" textFill="WHITE">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="16.0" />
                            </font>
-                        </Text>
+                        </Hyperlink>
                      </children>
                   </Pane>
                </children></Pane>

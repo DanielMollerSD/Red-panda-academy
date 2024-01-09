@@ -8,7 +8,7 @@ module com.example.redpandaacademy {
     requires java.logging;
     requires com.fazecast.jSerialComm;
     requires java.sql;
-
+    //requires mysql.connector.j;
 
     opens com.example.redpandaacademy to javafx.fxml;
     exports com.example.redpandaacademy;

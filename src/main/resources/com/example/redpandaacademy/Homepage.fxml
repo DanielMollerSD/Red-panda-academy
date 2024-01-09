@@ -84,6 +84,8 @@
                      </font>
                   </Button>
                   <Button id="TestButton" layoutX="383.0" layoutY="162.0" mnemonicParsing="false" onAction="#onTestButtonClick" prefHeight="75.0" prefWidth="108.0" text="Button" />
+                  <Button id="Test2Button" layoutX="513.0" layoutY="162.0" mnemonicParsing="false" onAction="#onTest2ButtonClick" prefHeight="75.0" prefWidth="108.0" text="Button" />
+                  <Button id="Test3Button" layoutX="513.0" layoutY="259.0" mnemonicParsing="false" onAction="#onTest3ButtonClick" prefHeight="75.0" prefWidth="108.0" text="Button" />
                </children>
             </Pane>
          </center>

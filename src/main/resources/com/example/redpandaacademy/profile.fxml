@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redpandaacademy.RegisterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redpandaacademy.ProfileController">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" opacity="0.8" pickOnBounds="true" smooth="false">
          <image>
@@ -59,58 +57,42 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="1343.0" BorderPane.alignment="CENTER">
                <children>
-                  <Text fill="WHITE" layoutX="350.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register" wrappingWidth="415.5958251953125">
+                  <Text fill="WHITE" layoutX="350.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account" wrappingWidth="415.5958251953125">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="80.0" />
                      </font>
                   </Text>
                   <Pane layoutX="350.0" layoutY="136.0" prefHeight="753.0" prefWidth="820.0" style="-fx-background-color: rgba(20, 20, 20, 0.8); -fx-background-radius: 20px;">
                      <children>
-                        <Text fill="WHITE" layoutX="120.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gebruikersnaam" wrappingWidth="404.25246313042487">
+                        <Text id="name" fill="WHITE" layoutX="120.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Naam" wrappingWidth="261.25246313042487">
                            <font>
-                              <Font name="Berlin Sans FB Demi Bold" size="48.0" />
+                              <Font name="Berlin Sans FB Demi Bold" size="40.0" />
                            </font>
                         </Text>
-                        <TextField layoutX="108.0" layoutY="107.0" prefHeight="45.0" prefWidth="605.0" promptText="Gebruikersnaam invullen" style="-fx-background-color: white; -fx-background-radius: 20px;">
+                        <Text id="username" fill="#ababab" layoutX="120.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gebruikersnaam" wrappingWidth="261.25246313042487">
                            <font>
-                              <Font size="30.0" />
-                           </font>
-                        </TextField>
-                        <Text fill="WHITE" layoutX="120.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail" wrappingWidth="172.45247533745615">
-                           <font>
-                              <Font name="Berlin Sans FB Demi Bold" size="48.0" />
+                              <Font name="Berlin Sans FB Demi Bold" size="25.0" />
                            </font>
                         </Text>
-                        <TextField layoutX="108.0" layoutY="257.0" prefHeight="45.0" prefWidth="605.0" promptText="E-mail invullen" style="-fx-background-color: white; -fx-background-radius: 20px;">
+                        <Text id="name" fill="WHITE" layoutX="120.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Datum aangesloten" wrappingWidth="424.25246313042487">
                            <font>
-                              <Font size="30.0" />
-                           </font>
-                        </TextField>
-                        <Text fill="WHITE" layoutX="116.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wachtwoord" wrappingWidth="589.2523410601124">
-                           <font>
-                              <Font name="Berlin Sans FB Demi Bold" size="48.0" />
+                              <Font name="Berlin Sans FB Demi Bold" size="40.0" />
                            </font>
                         </Text>
-                        <PasswordField layoutX="108.0" layoutY="404.0" prefHeight="65.8" prefWidth="605.0" promptText="Wachtwoord invullen" style="-fx-background-color: white; -fx-background-radius: 20px;">
+                        <Text id="statistics" fill="WHITE" layoutX="120.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistieken" wrappingWidth="261.25246313042487">
                            <font>
-                              <Font size="30.0" />
-                           </font>
-                        </PasswordField>
-                        <Text fill="WHITE" layoutX="116.0" layoutY="534.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Herhaal wachtwoord" wrappingWidth="589.2523410601124">
-                           <font>
-                              <Font name="Berlin Sans FB Demi Bold" size="48.0" />
+                              <Font name="Berlin Sans FB Demi Bold" size="40.0" />
                            </font>
                         </Text>
-                        <PasswordField layoutX="108.0" layoutY="554.0" prefHeight="65.8" prefWidth="605.0" promptText="Wachtwoord invullen" style="-fx-background-color: white; -fx-background-radius: 20px;">
+                        <Pane id="statistics1Box" layoutX="120.0" layoutY="275.0" prefHeight="102.0" prefWidth="276.0" style="-fx-background-color: white; -fx-border-radius: 16px; -fx-border-width: 3px; -fx-border-color: #c4c4c4; -fx-background-radius: 20px;" />
+                        <Pane id="statistics2Box" layoutX="430.0" layoutY="275.0" prefHeight="102.0" prefWidth="276.0" style="-fx-background-color: white; -fx-border-radius: 16px; -fx-border-width: 3px; -fx-border-color: #c4c4c4; -fx-background-radius: 20px;" />
+                        <Pane id="statistics3Box" layoutX="120.0" layoutY="405.0" prefHeight="102.0" prefWidth="276.0" style="-fx-background-color: white; -fx-border-radius: 16px; -fx-border-width: 3px; -fx-border-color: #c4c4c4; -fx-background-radius: 20px;" />
+                        <Pane id="statistics4Box" layoutX="430.0" layoutY="405.0" prefHeight="102.0" prefWidth="276.0" style="-fx-background-color: white; -fx-border-radius: 16px; -fx-border-width: 3px; -fx-border-color: #c4c4c4; -fx-background-radius: 20px;" />
+                        <Text id="achievements" fill="WHITE" layoutX="120.0" layoutY="578.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prestaties" wrappingWidth="261.25246313042487">
                            <font>
-                              <Font size="30.0" />
+                              <Font name="Berlin Sans FB Demi Bold" size="40.0" />
                            </font>
-                        </PasswordField>
-                        <Button layoutX="288.0" layoutY="650.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="244.0" style="-fx-background-color: linear-gradient(to bottom, #80e66c, #7aeb58); -fx-background-radius: 15px;" text="Maak account" textFill="WHITE">
-                           <font>
-                              <Font name="Berlin Sans FB Demi Bold" size="20.0" />
-                           </font>
-                        </Button>
+                        </Text>
                      </children>
                   </Pane>
                </children>
