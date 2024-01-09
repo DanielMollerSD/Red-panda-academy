@@ -19,6 +19,7 @@ public class DatabaseController {
         String username = config.getProperty("username");
         String password = config.getProperty("password");
 
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
