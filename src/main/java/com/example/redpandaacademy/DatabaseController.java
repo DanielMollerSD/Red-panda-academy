@@ -19,21 +19,19 @@ public class DatabaseController {
         String username = config.getProperty("username");
         String password = config.getProperty("password");
 
-
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            Connection connection = DriverManager.getConnection(url + databaseName, username, password);
-
             // Check if the database exists
-            if (!databaseExists(connection, databaseName)) {
-                createDatabase(connection, databaseName);
-
-                connection = DriverManager.getConnection(url + databaseName, username, password);
-
-                createTables(connection);
+            if (!databaseExists(url, databaseName, username, password)) {
+                createDatabase(url, databaseName, username, password);
+                createTables(url, databaseName, username, password);
             }
 
+            // Connect to database
+            Connection connection = DriverManager.getConnection(url + databaseName, username, password);
+
+            //Start of select statement
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM useraccount");
 
@@ -50,8 +48,9 @@ public class DatabaseController {
         }
     }
 
-    private static boolean databaseExists(Connection connection, String databaseName) {
+    private static boolean databaseExists(String url, String databaseName, String username, String password) {
         try {
+            Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SHOW DATABASES LIKE '" + databaseName + "'");
             return resultSet.next();
@@ -60,19 +59,21 @@ public class DatabaseController {
         }
     }
 
-    private static void createDatabase(Connection connection, String databaseName) {
+    private static void createDatabase(String url, String databaseName, String username, String password) {
         try {
+            Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
             statement.executeUpdate("CREATE DATABASE " + databaseName);
+            connection.close();
         } catch (Exception e) {
             System.out.println("Error creating database: " + e);
         }
     }
 
-    private static void createTables(Connection connection) {
+    private static void createTables(String url, String databaseName, String username, String password) {
         try {
+            Connection connection = DriverManager.getConnection(url + databaseName, username, password);
             Statement statement = connection.createStatement();
-
             statement.executeUpdate("CREATE TABLE `leerprogramma` (" +
                     "`leerprogrammaID` char(5) NOT NULL, " +
                     "`naam` varchar(45) DEFAULT NULL, " +
@@ -101,7 +102,8 @@ public class DatabaseController {
                     "`aantal_antwoorden` int(10) NOT NULL, " +
                     "`leerprogrammaID` char(5) NOT NULL, " +
                     "PRIMARY KEY (`vraagID`), " +
-                    "KEY `leerprogrammaID` (`leerprogrammaID`))");
+                    "FOREIGN KEY (leerprogrammaID) REFERENCES leerprogramma(leerprogrammaID))");
+
 
             statement.executeUpdate("CREATE TABLE `progressie` (" +
                     "`progressieID` int(5) NOT NULL, " +
@@ -109,8 +111,10 @@ public class DatabaseController {
                     "`useraccountID` int(5) NOT NULL, " +
                     "`vraagID` int(10) NOT NULL, " +
                     "PRIMARY KEY (`progressieID`), " +
-                    "KEY `useraccountID` (`useraccountID`), " +
-                    "KEY `vraagID` (`vraagID`))");
+                    "FOREIGN KEY (useraccountID) REFERENCES useraccount(useraccountID)," +
+                    "FOREIGN KEY (vraagID) REFERENCES vraag(vraagID))");
+
+            connection.close();
 
         } catch (Exception e) {
             System.out.println("Error creating tables: " + e);
@@ -119,7 +123,7 @@ public class DatabaseController {
 
     private static Properties readConfig() {
         Properties properties = new Properties();
-        try (FileInputStream input = new FileInputStream(".env.template")) {
+        try (FileInputStream input = new FileInputStream(".env")) {
             properties.load(input);
         } catch (IOException e) {
             e.printStackTrace();
