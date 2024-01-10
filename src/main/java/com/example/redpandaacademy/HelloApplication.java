@@ -10,6 +10,10 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        MicrobitController microbitController = new MicrobitController();
+        Thread microbitThread = new Thread(microbitController);
+        microbitThread.start();
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Homepage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
         scene.getStylesheets().add(getClass().getResource("/css/homepage.css").toExternalForm());

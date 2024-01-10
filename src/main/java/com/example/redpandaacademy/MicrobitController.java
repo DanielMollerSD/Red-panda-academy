@@ -1,9 +1,11 @@
 package com.example.redpandaacademy;
+
 import com.fazecast.jSerialComm.SerialPort;
 
-public class MicrobitController {
+public class MicrobitController implements Runnable {
 
-    public static void main(String[] args) {
+    @Override
+    public void run() {
         SerialPort[] ports = SerialPort.getCommPorts();
         SerialPort microBitPort = null;
 
@@ -19,7 +21,7 @@ public class MicrobitController {
             if (microBitPort.openPort()) {
                 microBitPort.setBaudRate(115200);
 
-                while (true) {
+                while (!Thread.currentThread().isInterrupted()) {
                     byte[] buffer = new byte[1024];
                     int numRead = microBitPort.readBytes(buffer, buffer.length);
 
@@ -32,7 +34,7 @@ public class MicrobitController {
                 System.out.println("Failed to open the serial port.");
             }
         } else {
-                System.out.println("Micro:bit not found.");
+            System.out.println("Micro:bit not found.");
         }
     }
 
@@ -40,8 +42,6 @@ public class MicrobitController {
         if (data != null && !data.trim().isEmpty()) {
             // Remove leading and trailing double-quote characters
             data = data.replaceAll("^\"|\"$", "");
-
-
 
             switch (data) {
                 case "A":
@@ -64,5 +64,4 @@ public class MicrobitController {
             }
         }
     }
-
 }
