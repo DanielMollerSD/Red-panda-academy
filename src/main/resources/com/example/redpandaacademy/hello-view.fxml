@@ -63,7 +63,8 @@
                         <Font name="Berlin Sans FB Demi Bold" size="60.0" />
                      </font>
                   </Text>
-                  <Pane layoutY="168.0" prefHeight="170.0" prefWidth="760.0" style="-fx-background-color: linear-gradient(to bottom, #d2d6f1, #acb0cc); -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 1;">
+                 <!--Old hardcoded code:-->
+                  <!--<Pane layoutY="168.0" prefHeight="170.0" prefWidth="760.0" style="-fx-background-color: linear-gradient(to bottom, #d2d6f1, #acb0cc); -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 1;">
                      <children>
                         <Pane layoutX="14.0" layoutY="15.0" prefHeight="140.0" prefWidth="140.0" style="-fx-background-color: #acb0cc; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;">
                            <children>
@@ -94,8 +95,8 @@
                            </graphic>
                         </Button>
                      </children>
-                  </Pane>
-                  <Pane layoutX="760.0" layoutY="410.0" prefHeight="170.0" prefWidth="760.0" style="-fx-background-color: linear-gradient(to bottom, #8fc178, #729b5f); -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 1;">
+                  </Pane>-->
+                  <!--<Pane layoutX="760.0" layoutY="410.0" prefHeight="170.0" prefWidth="760.0" style="-fx-background-color: linear-gradient(to bottom, #8fc178, #729b5f); -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 1;">
                      <children>
                         <Pane layoutX="14.0" layoutY="15.0" prefHeight="140.0" prefWidth="140.0" style="-fx-background-color: #8fc178; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;">
                            <children>
@@ -124,8 +125,8 @@
                               </ImageView>
                            </graphic></Button>
                      </children>
-                  </Pane>
-                  <Pane layoutY="653.0" prefHeight="170.0" prefWidth="760.0" style="-fx-background-color: linear-gradient(to bottom, #ff6767, #ff4c4c); -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 1;">
+                  </Pane>-->
+                  <!--<Pane layoutY="653.0" prefHeight="170.0" prefWidth="760.0" style="-fx-background-color: linear-gradient(to bottom, #ff6767, #ff4c4c); -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 1;">
                      <children>
                         <Pane layoutX="14.0" layoutY="15.0" prefHeight="140.0" prefWidth="140.0" style="-fx-background-color: #f44360; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;">
                            <children>
@@ -156,7 +157,7 @@
                            </graphic>
                         </Button>
                      </children>
-                  </Pane>
+                  </Pane>-->
                </children>
             </Pane>
          </center>

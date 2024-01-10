@@ -1,17 +1,14 @@
 package com.example.redpandaacademy;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 public class DatabaseController {
-
-    public static void main(String[] args) {
+    private Connection connection;
+    public DatabaseController() {
         Properties config = readConfig();
 
         String url = config.getProperty("url");
@@ -29,9 +26,9 @@ public class DatabaseController {
             }
 
             // Connect to database
-            Connection connection = DriverManager.getConnection(url + databaseName, username, password);
+            connection = DriverManager.getConnection(url + databaseName, username, password);
 
-            //Start of select statement
+            /*//Start of select statement
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM useraccount");
 
@@ -40,11 +37,27 @@ public class DatabaseController {
                         resultSet.getString(4) + " " + resultSet.getInt(5) + " " + resultSet.getInt(6) + " " +
                         resultSet.getString(7) + " " + resultSet.getString(8) + " " + resultSet.getString(9) + " " +
                         resultSet.getString(10) + " " + resultSet.getDate(11));
-            }
+            }*/
 
-            connection.close();
+            //connection.close();
         } catch (Exception e) {
             System.out.println(e);
+        }
+    }
+
+    public ResultSet fetchUserData() throws SQLException {
+        Statement statement = connection.createStatement();
+        return statement.executeQuery("SELECT * FROM useraccount");
+    }
+
+    public ResultSet fetchLevelData() throws SQLException {
+        Statement statement = connection.createStatement();
+        return statement.executeQuery("SELECT * FROM leerprogramma");
+    }
+
+    public void closeConnection() throws SQLException {
+        if (connection != null && !connection.isClosed()) {
+            connection.close();
         }
     }
 
@@ -75,42 +88,43 @@ public class DatabaseController {
             Connection connection = DriverManager.getConnection(url + databaseName, username, password);
             Statement statement = connection.createStatement();
             statement.executeUpdate("CREATE TABLE `leerprogramma` (" +
-                    "`leerprogrammaID` char(5) NOT NULL, " +
-                    "`naam` varchar(45) DEFAULT NULL, " +
-                    "`foto` varchar(45) DEFAULT NULL, " +
-                    "`beschrijving` varchar(45) DEFAULT NULL, " +
-                    "`type_spel` varchar(45) NOT NULL, " +
-                    "`aantal_vragen` int(5) NOT NULL, " +
+                    "`leerprogrammaID` char(5) NOT NULL," +
+                    "`naam` varchar(45) DEFAULT NULL," +
+                    "`foto` varchar(45) DEFAULT NULL," +
+                    "`beschrijving` varchar(45) DEFAULT NULL," +
+                    "`type_spel` varchar(45) NOT NULL," +
+                    "`primary_color` varchar(7) NOT NULL," +
+                    "`secondary_color` varchar(7) NOT NULL," +
+                    "`accent_color` varchar(7) NOT NULL," +
                     "PRIMARY KEY (`leerprogrammaID`))");
 
             statement.executeUpdate("CREATE TABLE `useraccount` (" +
-                    "`useraccountID` int(5) NOT NULL, " +
-                    "`username` varchar(45) NOT NULL, " +
-                    "`voornaam` varchar(45) NOT NULL, " +
-                    "`achternaam` varchar(45) NOT NULL, " +
-                    "`leeftijd` int(10) NOT NULL, " +
-                    "`accountlevel` tinyint(4) DEFAULT NULL, " +
-                    "`geslacht` varchar(45) DEFAULT NULL, " +
-                    "`email` varchar(45) NOT NULL, " +
-                    "`wachtwoord` varchar(45) NOT NULL, " +
-                    "`rol` varchar(45) NOT NULL, " +
-                    "`aanmelddatum` datetime DEFAULT NULL, " +
+                    "`useraccountID` int(5) NOT NULL," +
+                    "`email` varchar(45) NOT NULL," +
+                    "`wachtwoord` varchar(45) NOT NULL," +
+                    "`username` varchar(45) NOT NULL," +
+                    "`voornaam` varchar(45) NOT NULL," +
+                    "`achternaam` varchar(45) NOT NULL," +
+                    "`leeftijd` int(10) NOT NULL," +
+                    "`rol` varchar(45) NOT NULL," +
                     "PRIMARY KEY (`useraccountID`))");
 
             statement.executeUpdate("CREATE TABLE `vraag` (" +
-                    "`vraagID` int(10) NOT NULL, " +
-                    "`aantal_antwoorden` int(10) NOT NULL, " +
-                    "`leerprogrammaID` char(5) NOT NULL, " +
+                    "`vraagID` int(10) NOT NULL,\n" +
+                    "  `aantwoord1` varchar(255) NOT NULL," +
+                    "  `aantwoord2` varchar(255) NOT NULL," +
+                    "  `aantwoord3` varchar(255) NOT NULL," +
+                    "  `aantwoord4` varchar(255) NOT NULL," +
+                    "  `leerprogrammaID` char(5) NOT NULL," +
                     "PRIMARY KEY (`vraagID`), " +
                     "FOREIGN KEY (leerprogrammaID) REFERENCES leerprogramma(leerprogrammaID))");
 
 
             statement.executeUpdate("CREATE TABLE `progressie` (" +
-                    "`progressieID` int(5) NOT NULL, " +
-                    "`stats` varchar(45) DEFAULT NULL, " +
-                    "`useraccountID` int(5) NOT NULL, " +
-                    "`vraagID` int(10) NOT NULL, " +
-                    "PRIMARY KEY (`progressieID`), " +
+                    "`progressieID` int(5) NOT NULL," +
+                    "`vraag_status` varchar(45) DEFAULT NULL," +
+                    "`useraccountID` int(5) NOT NULL," +
+                    "`vraagID` int(10) NOT NULL," +
                     "FOREIGN KEY (useraccountID) REFERENCES useraccount(useraccountID)," +
                     "FOREIGN KEY (vraagID) REFERENCES vraag(vraagID))");
 
