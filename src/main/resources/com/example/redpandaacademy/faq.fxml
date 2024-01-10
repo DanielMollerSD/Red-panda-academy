@@ -63,6 +63,11 @@
                         <Pane id="page1000" layoutX="436.0" layoutY="-24.0" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </Pane>
+                  <Text fill="WHITE" layoutX="555.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Veel Gestelde Vragen" textAlignment="CENTER" wrappingWidth="766.2779846191406">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="60.0" />
+                     </font>
+                  </Text>
                </children>
             </Pane>
          </center>

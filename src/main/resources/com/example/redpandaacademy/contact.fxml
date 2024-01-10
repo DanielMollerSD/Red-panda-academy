@@ -63,6 +63,11 @@
                         <Pane id="page1000" layoutX="436.0" layoutY="-24.0" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </Pane>
+                  <Text fill="WHITE" layoutX="569.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Neem contact met ons op" textAlignment="CENTER" wrappingWidth="766.2779846191406">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="60.0" />
+                     </font>
+                  </Text>
                </children>
             </Pane>
          </center>

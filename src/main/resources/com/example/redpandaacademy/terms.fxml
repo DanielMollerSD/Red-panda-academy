@@ -63,14 +63,18 @@
                         <Pane id="page1000" layoutX="436.0" layoutY="-24.0" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </Pane>
+                  <Text fill="WHITE" layoutX="505.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Voorwaarden &amp; Diensten" textAlignment="CENTER" wrappingWidth="766.2779846191406">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="60.0" />
+                     </font>
+                  </Text>
                </children>
             </Pane>
          </center>
          <bottom>
             <Pane prefHeight="60.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
                <children>
-
-                        <Line endX="1414.0" endY="10.0" layoutX="306.0" layoutY="-10.0" startX="-106.0" startY="10.0" stroke="WHITE" />
+                  <Line endX="1414.0" endY="10.0" layoutX="306.0" layoutY="-10.0" startX="-106.0" startY="10.0" stroke="WHITE" />
                   <Pane layoutX="860.0" layoutY="10.0" prefHeight="41.0" prefWidth="200.0">
                      <children>
                         <Hyperlink id="TermsButton" layoutX="23.0" layoutY="4.0" onAction="#onTermsButtonClick" prefHeight="32.0" prefWidth="53.0" style="-fx-border-color: transparent; -fx-underline: false; -fx-text-fill: white;" text="Terms" textFill="WHITE">
@@ -90,7 +94,8 @@
                         </Hyperlink>
                      </children>
                   </Pane>
-               </children></Pane>
+               </children>
+            </Pane>
          </bottom>
       </BorderPane>
    </children>
