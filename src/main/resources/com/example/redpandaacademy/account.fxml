@@ -85,7 +85,7 @@
                               <Font size="30.0" />
                            </font>
                         </TextField>
-                        <Hyperlink id="changepasswordButton" layoutX="140.0" layoutY="500.0" style="-fx-border-color: transparent;" text="Verander password" textFill="WHITE">
+                        <Hyperlink id="changepasswordButton" layoutX="140.0" layoutY="500.0" onAction="#onChangepasswordButtonClicked" style="-fx-border-color: transparent;" text="Verander password" textFill="WHITE">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="24.0" />
                            </font>

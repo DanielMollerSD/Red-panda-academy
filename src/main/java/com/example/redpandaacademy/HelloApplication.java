@@ -10,11 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class HelloApplication extends Application {
-    private DatabaseController databaseController;
     @Override
     public void start(Stage stage) throws IOException {
 
-        databaseController = new DatabaseController();
+        DatabaseController databaseController = new DatabaseController();
 
         // Fetch and display user data
         try {
@@ -26,7 +25,6 @@ public class HelloApplication extends Application {
             e.printStackTrace();
         } finally {
             try {
-                // Close the database connection
                 databaseController.closeConnection();
             } catch (SQLException e) {
                 e.printStackTrace();
