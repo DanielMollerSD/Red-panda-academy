@@ -57,7 +57,7 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="1343.0" BorderPane.alignment="CENTER">
                <children>
-                  <Text fill="WHITE" layoutX="350.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account" wrappingWidth="415.5958251953125">
+                  <Text fill="WHITE" layoutX="350.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profiel" wrappingWidth="415.5958251953125">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="80.0" />
                      </font>

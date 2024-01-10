@@ -22,6 +22,8 @@ public class HelloApplication extends Application {
     private void setFullscreen(Stage stage, Scene scene) {
         stage.setFullScreen(true);
 
+        stage.setFullScreenExitHint(""); // Set the exit hint to an empty string
+
         stage.sceneProperty().addListener((observable, oldScene, newScene) -> {
             if (newScene != null) {
                 setFullscreen(stage, newScene);
