@@ -48,6 +48,14 @@ public class DatabaseController {
     public ResultSet fetchUserData() throws SQLException {
         Statement statement = connection.createStatement();
         return statement.executeQuery("SELECT * FROM useraccount");
+
+    }
+
+    public ResultSet CheckUser(String email, String password) throws SQLException {
+        Statement statement = connection.createStatement();
+
+        return statement.executeQuery("SELECT * FROM useraccount WHERE email = '" + email + "' AND wachtwoord = '" + password + "'");
+
     }
 
     public ResultSet fetchLevelData() throws SQLException {

@@ -26,7 +26,7 @@ public class HelloApplication extends Application {
         } finally {
             try {
                 databaseController.closeConnection();
-            } catch (SQLException e) {
+            } catch (SQLException e){
                 e.printStackTrace();
             }
         }
@@ -44,7 +44,7 @@ public class HelloApplication extends Application {
         stage.setFullScreen(true);
 
         stage.sceneProperty().addListener((observable, oldScene, newScene) -> {
-            if (newScene != null) {
+            if (newScene == null) {
                 setFullscreen(stage, newScene);
             }
         });
