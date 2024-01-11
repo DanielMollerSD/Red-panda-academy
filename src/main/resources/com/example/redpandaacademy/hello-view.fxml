@@ -63,6 +63,9 @@
                         <Font name="Berlin Sans FB Demi Bold" size="60.0" />
                      </font>
                   </Text>
+                  <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity">
+                  <!-- Other elements within the AnchorPane -->
+                  </AnchorPane>
                  <!--Old hardcoded code:-->
                   <!--<Pane layoutY="168.0" prefHeight="170.0" prefWidth="760.0" style="-fx-background-color: linear-gradient(to bottom, #d2d6f1, #acb0cc); -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 1;">
                      <children>
