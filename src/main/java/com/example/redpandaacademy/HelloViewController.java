@@ -11,9 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -37,23 +37,52 @@ public class HelloViewController implements Initializable {
 
             while (levelSet.next()) {
                 String levelName = levelSet.getString("naam");
-                String levelImage = levelSet.getString("foto");
                 String primaryColor = levelSet.getString("primary_color");
                 String secondaryColor = levelSet.getString("secondary_color");
                 String accentColor = levelSet.getString("accent_color");
 
-                System.out.println(levelName + " " + levelImage);
+                // Level container
+                Pane levelPane = new Pane();
+                levelPane.setStyle("-fx-background-color: linear-gradient(to bottom, " + primaryColor + ", " + secondaryColor + "); -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 1;");
+                levelPane.setPrefSize(760, 170);
+                levelPane.setLayoutY(yOffset);
 
-                // Dynamically create a white pane and add it to anchorPane
-                Pane whitePane = new Pane();
-                whitePane.setStyle("-fx-background-color: white;");
-                whitePane.setPrefSize(20, 20);
-                whitePane.setLayoutX(anchorPane.getWidth() / 2 - 10); // Center X
-                whitePane.setLayoutY(yOffset); // Adjust Y position based on your requirements
-                anchorPane.getChildren().add(whitePane);
+                // Level name
+                Text levelNameText = new Text(levelName);
+                levelNameText.setFill(Color.WHITE);
+                levelNameText.setLayoutX(170);
+                levelNameText.setLayoutY(80);
+                levelNameText.setStrokeType(StrokeType.OUTSIDE);
+                levelNameText.setStrokeWidth(0.0);
+                levelNameText.setFont(Font.font("Berlin Sans FB Demi Bold", 45));
 
-                // Update yOffset for the next iteration if needed
-                yOffset += 150; // Adjust as needed
+                // Progress bar
+                Pane whiteBackgroundPane = new Pane();
+                whiteBackgroundPane.setStyle("-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;");
+                whiteBackgroundPane.setPrefSize(420, 45);
+                whiteBackgroundPane.setLayoutY(110);
+                whiteBackgroundPane.setLayoutX(170);
+
+                //Start button
+                Button startButton = new Button("Start");
+                startButton.setLayoutX(600);
+                startButton.setLayoutY(110);
+                startButton.setMinWidth(140);
+                startButton.setMinHeight(45);
+                startButton.setStyle("-fx-background-color: " + accentColor + "; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-text-fill: white;");
+                startButton.setFont(Font.font("Berlin Sans FB Demi Bold", 27));
+                startButton.setOnAction(event -> {
+                    // Add logic to handle level start
+                });
+
+                // Add all sub-panes and elements to the main levelPane
+                levelPane.getChildren().addAll(whiteBackgroundPane, levelNameText, startButton);
+
+                // Add the levelPane to the anchorPane
+                anchorPane.getChildren().add(levelPane);
+
+                // Update yOffset for the next iteration
+                yOffset += 200; // Adjust as needed
             }
         } catch (SQLException e) {
             e.printStackTrace(); // Handle exceptions appropriately
