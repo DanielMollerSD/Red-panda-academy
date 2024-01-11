@@ -43,12 +43,16 @@ public class HelloApplication extends Application {
     private void setFullscreen(Stage stage, Scene scene) {
         stage.setFullScreen(true);
 
+        // Disable the default fullscreen exit hint
+        stage.setFullScreenExitHint("");
+
         stage.sceneProperty().addListener((observable, oldScene, newScene) -> {
             if (newScene != null) {
                 setFullscreen(stage, newScene);
             }
         });
     }
+
 
     public static void main(String[] args) {
         launch();

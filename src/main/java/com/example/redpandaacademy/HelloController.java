@@ -18,6 +18,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -136,6 +137,15 @@ public class HelloController implements Initializable {
     @FXML
     public void onTest3ButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profile.fxml"));
+        Parent newTemplate = fxmlLoader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        stage.setScene(new Scene(newTemplate, 1920, 1080));
+        stage.show();
+    }
+    @FXML
+    public void onTest4ButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("game.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
