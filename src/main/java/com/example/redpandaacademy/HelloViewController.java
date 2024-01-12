@@ -1,5 +1,6 @@
 package com.example.redpandaacademy;
 
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,9 +35,29 @@ public class HelloViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             ResultSet levelSet = databaseController.fetchLevelData();
-            int yOffset = 0;
+            int yOffset = 200;
+            int xOffset = 0;
+            int levelIndex = 0;
 
             while (levelSet.next()) {
+
+                if (levelIndex % 2 == 0) {
+                    xOffset = 0;
+                } else {
+                    xOffset = 760;
+                }
+
+                // Watch out! Hard coded 1 in useraccountID
+                ResultSet progressData = databaseController.fetchProgressData(levelSet.getInt("leerprogrammaID"), 1);
+
+                int totalQuestions = 0;
+                int correctAnswers = 0;
+
+                while (progressData.next()) {
+                    totalQuestions = progressData.getInt("totalQuestions");
+                    correctAnswers = progressData.getInt("correctAnswers");
+                }
+
                 String levelName = levelSet.getString("naam");
                 String levelImage = levelSet.getString("foto");
                 URL imageUrl = getClass().getResource(levelImage);
@@ -49,12 +70,14 @@ public class HelloViewController implements Initializable {
                 levelPane.setStyle("-fx-background-color: linear-gradient(to bottom, " + primaryColor + ", " + secondaryColor + "); -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 1;");
                 levelPane.setPrefSize(760, 170);
                 levelPane.setLayoutY(yOffset);
+                levelPane.setLayoutX(xOffset);
 
                 //picture frame
                 Pane imagePane = new Pane();
                 imagePane.setStyle("-fx-background-color: " + accentColor + "; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;");
                 imagePane.setPrefSize(140, 140);
-                imagePane.setLayoutX(14);
+                imagePane.setLayoutY(15);
+                imagePane.setLayoutX(15);
 
                 //picture
                 if (imageUrl != null) {
@@ -77,11 +100,25 @@ public class HelloViewController implements Initializable {
                 levelNameText.setFont(Font.font("Berlin Sans FB Demi Bold", 45));
 
                 // Progress bar
-                Pane whiteBackgroundPane = new Pane();
-                whiteBackgroundPane.setStyle("-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;");
-                whiteBackgroundPane.setPrefSize(420, 45);
-                whiteBackgroundPane.setLayoutY(110);
-                whiteBackgroundPane.setLayoutX(170);
+                Pane ProgressBar = new Pane();
+                ProgressBar.setStyle("-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;");
+                ProgressBar.setPrefSize(420, 45);
+                ProgressBar.setLayoutY(110);
+                ProgressBar.setLayoutX(170);
+
+                // Calculate width progressbar
+                System.out.println(totalQuestions);
+                System.out.println(correctAnswers);
+                int size = 0;
+                if (totalQuestions > 0 && correctAnswers > 0) {size = (420 / totalQuestions) * correctAnswers;}
+                if (size <= 53) {size = 53;}
+
+                // Colored progress bar
+                Pane coloredProgressBar = new Pane();
+                coloredProgressBar.setStyle("-fx-background-color: " + accentColor + "; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;");
+                coloredProgressBar.setPrefSize(size, 45);
+                coloredProgressBar.setLayoutY(110);
+                coloredProgressBar.setLayoutX(170);
 
                 //Start button
                 Button startButton = new Button("Start");
@@ -96,16 +133,17 @@ public class HelloViewController implements Initializable {
                 });
 
                 // Add all sub-panes and elements to the main levelPane
-                levelPane.getChildren().addAll(imagePane, levelNameText, whiteBackgroundPane, startButton);
+                levelPane.getChildren().addAll(imagePane, levelNameText, ProgressBar, coloredProgressBar, startButton);
 
                 // Add the levelPane to the anchorPane
                 anchorPane.getChildren().add(levelPane);
 
-                // Update yOffset for the next iteration
-                yOffset += 200; // Adjust as needed
+                // next level 200px lower
+                yOffset += 200;
+                levelIndex++;
             }
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle exceptions appropriately
+            e.printStackTrace();
         }
     }
 
@@ -114,7 +152,7 @@ public class HelloViewController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
@@ -124,7 +162,7 @@ public class HelloViewController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("homepage.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
@@ -134,7 +172,7 @@ public class HelloViewController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("terms.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
@@ -144,7 +182,7 @@ public class HelloViewController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("faq.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
@@ -154,7 +192,7 @@ public class HelloViewController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("contact.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }

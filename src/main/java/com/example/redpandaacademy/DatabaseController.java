@@ -56,6 +56,14 @@ public class DatabaseController {
         return statement.executeQuery("SELECT * FROM leerprogramma");
     }
 
+    public ResultSet fetchProgressData(int leerprogrammaID, int useraccountID) throws SQLException {
+        Statement statement = connection.createStatement();
+        String sqlQuery = "SELECT COUNT(v.vraagID) AS totalQuestions, COUNT(CASE WHEN p.vraag_status = 'goed' THEN 1 END) AS correctAnswers " +
+                "FROM vraag v LEFT JOIN progressie p ON v.vraagID = p.vraagID AND p.useraccountID = " + useraccountID +
+                " WHERE v.leerprogrammaID = '" + leerprogrammaID + "'";
+        return statement.executeQuery(sqlQuery);
+    }
+
     public void closeConnection() throws SQLException {
         if (connection != null && !connection.isClosed()) {
             connection.close();
@@ -90,7 +98,7 @@ public class DatabaseController {
             Statement statement = connection.createStatement();
 
             statement.executeUpdate("CREATE TABLE `leerprogramma` (" +
-                    "`leerprogrammaID` char(5) NOT NULL," +
+                    "`leerprogrammaID` INT AUTO_INCREMENT NOT NULL," +
                     "`naam` varchar(45) DEFAULT NULL," +
                     "`foto` varchar(45) DEFAULT NULL," +
                     "`beschrijving` varchar(45) DEFAULT NULL," +
@@ -101,7 +109,7 @@ public class DatabaseController {
                     "PRIMARY KEY (`leerprogrammaID`))");
 
             statement.executeUpdate("CREATE TABLE `useraccount` (" +
-                    "`useraccountID` int(5) NOT NULL," +
+                    "`useraccountID` INT AUTO_INCREMENT NOT NULL," +
                     "`email` varchar(45) NOT NULL," +
                     "`wachtwoord` varchar(45) NOT NULL," +
                     "`username` varchar(45) NOT NULL," +
@@ -112,23 +120,43 @@ public class DatabaseController {
                     "PRIMARY KEY (`useraccountID`))");
 
             statement.executeUpdate("CREATE TABLE `vraag` (" +
-                    "`vraagID` int(10) NOT NULL," +
+                    "`vraagID` INT AUTO_INCREMENT NOT NULL," +
                     "`vraag` varchar(255) NOT NULL," +
-                    "`aantwoord1` varchar(255) NOT NULL," +
-                    "`aantwoord2` varchar(255) NOT NULL," +
-                    "`aantwoord3` varchar(255) NOT NULL," +
-                    "`aantwoord4` varchar(255) NOT NULL," +
-                    "`leerprogrammaID` char(5) NOT NULL," +
-                    "PRIMARY KEY (`vraagID`), " +
+                    "`antwoord1` varchar(255) NOT NULL," +
+                    "`antwoord2` varchar(255) NOT NULL," +
+                    "`antwoord3` varchar(255) NOT NULL," +
+                    "`antwoord4` varchar(255) NOT NULL," +
+                    "`leerprogrammaID` int(5) NOT NULL," +
+                    "PRIMARY KEY (`vraagID`)," +
                     "FOREIGN KEY (leerprogrammaID) REFERENCES leerprogramma(leerprogrammaID))");
 
             statement.executeUpdate("CREATE TABLE `progressie` (" +
-                    "`progressieID` int(5) NOT NULL," +
+                    "`progressieID` INT AUTO_INCREMENT NOT NULL," +
                     "`vraag_status` varchar(45) DEFAULT NULL," +
                     "`useraccountID` int(5) NOT NULL," +
                     "`vraagID` int(10) NOT NULL," +
+                    "PRIMARY KEY (`progressieID`)," +
                     "FOREIGN KEY (useraccountID) REFERENCES useraccount(useraccountID)," +
                     "FOREIGN KEY (vraagID) REFERENCES vraag(vraagID))");
+
+            statement.executeUpdate("INSERT INTO `leerprogramma` VALUES " +
+                    "(1, 'De boze tovenaar', '/img/Evil Wizard.png', 'Beschrijving 1', 'Type 1', '#d2d6f1', '#acb0cc', '#684fa2'), " +
+                    "(2, 'De oude heks', '/img/Witch.png', 'Beschrijving 2', 'Type 2', '#8fc178', '#729b5f', '#8d8d8d'), " +
+                    "(3, 'De vuur draak', '/img/dragon.png', 'Beschrijving 3', 'Type 3', '#ff6767', '#ff4c4c', '#8d8d8d')");
+
+            statement.executeUpdate("INSERT INTO `vraag` VALUES " +
+                    "(1, 'Vraag 1?', 'Antwoord 1.1', 'Antwoord 1.2', 'Antwoord 1.3', 'Antwoord 1.4', 1), " +
+                    "(2, 'Vraag 2?', 'Antwoord 2.1', 'Antwoord 2.2', 'Antwoord 2.3', 'Antwoord 2.4', 1), " +
+                    "(3, 'Vraag 3?', 'Antwoord 3.1', 'Antwoord 3.2', 'Antwoord 3.3', 'Antwoord 3.4', 1)");
+
+            statement.executeUpdate("INSERT INTO `useraccount` VALUES " +
+                    "(1, 'test@mail.com', 'test123!', 'gebruiker', 'fname', 'lname', 21, 'user')");
+
+            statement.executeUpdate("INSERT INTO `progressie` VALUES " +
+                    "(1, 'goed', 1, 1)," +
+                    "(2, 'goed', 1, 2)," +
+                    "(3, 'fout', 1, 3)");
+
             connection.close();
         } catch (Exception e) {
             System.out.println("Error creating tables: " + e);
