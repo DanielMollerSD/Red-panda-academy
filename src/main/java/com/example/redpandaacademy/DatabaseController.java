@@ -8,6 +8,7 @@ import java.util.Properties;
 
 public class DatabaseController {
     private Connection connection;
+
     public DatabaseController() {
         Properties config = readConfig();
 
@@ -95,6 +96,7 @@ public class DatabaseController {
         try {
             Connection connection = DriverManager.getConnection(url + databaseName, username, password);
             Statement statement = connection.createStatement();
+
             statement.executeUpdate("CREATE TABLE `leerprogramma` (" +
                     "`leerprogrammaID` char(5) NOT NULL," +
                     "`naam` varchar(45) DEFAULT NULL," +
@@ -118,15 +120,15 @@ public class DatabaseController {
                     "PRIMARY KEY (`useraccountID`))");
 
             statement.executeUpdate("CREATE TABLE `vraag` (" +
-                    "`vraagID` int(10) NOT NULL,\n" +
-                    "  `aantwoord1` varchar(255) NOT NULL," +
-                    "  `aantwoord2` varchar(255) NOT NULL," +
-                    "  `aantwoord3` varchar(255) NOT NULL," +
-                    "  `aantwoord4` varchar(255) NOT NULL," +
-                    "  `leerprogrammaID` char(5) NOT NULL," +
+                    "`vraagID` int(10) NOT NULL," +
+                    "`vraag` varchar(255) NOT NULL," +
+                    "`aantwoord1` varchar(255) NOT NULL," +
+                    "`aantwoord2` varchar(255) NOT NULL," +
+                    "`aantwoord3` varchar(255) NOT NULL," +
+                    "`aantwoord4` varchar(255) NOT NULL," +
+                    "`leerprogrammaID` char(5) NOT NULL," +
                     "PRIMARY KEY (`vraagID`), " +
                     "FOREIGN KEY (leerprogrammaID) REFERENCES leerprogramma(leerprogrammaID))");
-
 
             statement.executeUpdate("CREATE TABLE `progressie` (" +
                     "`progressieID` int(5) NOT NULL," +
@@ -135,9 +137,7 @@ public class DatabaseController {
                     "`vraagID` int(10) NOT NULL," +
                     "FOREIGN KEY (useraccountID) REFERENCES useraccount(useraccountID)," +
                     "FOREIGN KEY (vraagID) REFERENCES vraag(vraagID))");
-
             connection.close();
-
         } catch (Exception e) {
             System.out.println("Error creating tables: " + e);
         }
