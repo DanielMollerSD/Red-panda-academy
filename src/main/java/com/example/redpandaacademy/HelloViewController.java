@@ -29,6 +29,7 @@ public class HelloViewController implements Initializable {
     private final DatabaseController databaseController = new DatabaseController();
     @FXML
     private AnchorPane anchorPane;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -37,6 +38,8 @@ public class HelloViewController implements Initializable {
 
             while (levelSet.next()) {
                 String levelName = levelSet.getString("naam");
+                String levelImage = levelSet.getString("foto");
+                URL imageUrl = getClass().getResource(levelImage);
                 String primaryColor = levelSet.getString("primary_color");
                 String secondaryColor = levelSet.getString("secondary_color");
                 String accentColor = levelSet.getString("accent_color");
@@ -46,6 +49,23 @@ public class HelloViewController implements Initializable {
                 levelPane.setStyle("-fx-background-color: linear-gradient(to bottom, " + primaryColor + ", " + secondaryColor + "); -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 1;");
                 levelPane.setPrefSize(760, 170);
                 levelPane.setLayoutY(yOffset);
+
+                //picture frame
+                Pane imagePane = new Pane();
+                imagePane.setStyle("-fx-background-color: " + accentColor + "; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;");
+                imagePane.setPrefSize(140, 140);
+                imagePane.setLayoutX(14);
+
+                //picture
+                if (imageUrl != null) {
+                    String imageUrlString = imageUrl.toExternalForm();
+                    ImageView imageView = new ImageView(new Image(imageUrlString));
+                    imageView.setFitHeight(140);
+                    imageView.setFitWidth(140);
+                    imagePane.getChildren().add(imageView);
+                } else {
+                    System.err.println("Image resource not found: " + levelImage);
+                }
 
                 // Level name
                 Text levelNameText = new Text(levelName);
@@ -76,7 +96,7 @@ public class HelloViewController implements Initializable {
                 });
 
                 // Add all sub-panes and elements to the main levelPane
-                levelPane.getChildren().addAll(whiteBackgroundPane, levelNameText, startButton);
+                levelPane.getChildren().addAll(imagePane, levelNameText, whiteBackgroundPane, startButton);
 
                 // Add the levelPane to the anchorPane
                 anchorPane.getChildren().add(levelPane);
@@ -88,6 +108,7 @@ public class HelloViewController implements Initializable {
             e.printStackTrace(); // Handle exceptions appropriately
         }
     }
+
     @FXML
     private void onLoginButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
@@ -97,6 +118,7 @@ public class HelloViewController implements Initializable {
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
+
     @FXML
     public void onLogoButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("homepage.fxml"));
@@ -106,6 +128,7 @@ public class HelloViewController implements Initializable {
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
+
     @FXML
     public void onTermsButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("terms.fxml"));
@@ -115,6 +138,7 @@ public class HelloViewController implements Initializable {
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
+
     @FXML
     public void onFaqButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("faq.fxml"));
@@ -124,6 +148,7 @@ public class HelloViewController implements Initializable {
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
+
     @FXML
     public void onContactButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("contact.fxml"));
