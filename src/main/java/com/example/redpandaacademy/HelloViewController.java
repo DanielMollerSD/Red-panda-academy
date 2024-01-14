@@ -48,7 +48,8 @@ public class HelloViewController implements Initializable {
                 }
 
                 // Watch out! Hard coded 1 in useraccountID
-                ResultSet progressData = databaseController.fetchProgressData(levelSet.getInt("leerprogrammaID"), 1);
+                int leerprogrammaID = levelSet.getInt("leerprogrammaID");
+                ResultSet progressData = databaseController.fetchProgressData(leerprogrammaID, 1);
 
                 int totalQuestions = 0;
                 int correctAnswers = 0;
@@ -130,6 +131,20 @@ public class HelloViewController implements Initializable {
                 startButton.setFont(Font.font("Berlin Sans FB Demi Bold", 27));
                 startButton.setOnAction(event -> {
                     // Add logic to handle level start
+
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("game.fxml"));
+                    Parent newTemplate = null;
+                    try {
+                        newTemplate = fxmlLoader.load();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    GameController gameController = fxmlLoader.getController();
+                    gameController.initialize(leerprogrammaID);
+
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(new Scene(newTemplate, 1920, 1080));
+                    stage.show();
                 });
 
                 // Add all sub-panes and elements to the main levelPane
