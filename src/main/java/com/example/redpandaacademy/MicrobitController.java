@@ -3,7 +3,11 @@ package com.example.redpandaacademy;
 import com.fazecast.jSerialComm.SerialPort;
 
 public class MicrobitController implements Runnable {
+    private GameController gameController;
 
+    public MicrobitController(GameController gameController) {
+        this.gameController = gameController;
+    }
     @Override
     public void run() {
         SerialPort[] ports = SerialPort.getCommPorts();
@@ -11,7 +15,7 @@ public class MicrobitController implements Runnable {
 
         for (SerialPort port : ports) {
             System.out.println(port.getDescriptivePortName());
-            if (port.getDescriptivePortName().contains("COM")) {
+            if (port.getDescriptivePortName().contains("COM3")) {
                 microBitPort = port;
                 break;
             }
@@ -38,26 +42,26 @@ public class MicrobitController implements Runnable {
         }
     }
 
-    private static void processEvent(String data) {
+    private void processEvent(String data) {
         if (data != null && !data.trim().isEmpty()) {
             // Remove leading and trailing double-quote characters
             data = data.replaceAll("^\"|\"$", "");
 
             switch (data) {
                 case "A":
-                    System.out.println("Button A input");
+                    gameController.onMicrobitButtonAClick(data);
                     break;
                 case "B":
-                    System.out.println("Button B input");
+                    gameController.onMicrobitButtonBClick(data);
                     break;
                 case "C":
-                    System.out.println("Button C input");
+                    gameController.onMicrobitButtonCClick(data);
                     break;
                 case "D":
-                    System.out.println("Button D input");
+                    gameController.onMicrobitButtonDClick(data);
                     break;
                 case "S":
-                    System.out.println("Shake event");
+                    gameController.onMicrobitButtonSClick(data);
                     break;
                 default:
                     break;

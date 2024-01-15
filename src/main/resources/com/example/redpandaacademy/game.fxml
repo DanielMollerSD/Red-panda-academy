@@ -61,38 +61,38 @@
                      <children>
                         <Pane id="PaneQuestion" layoutX="79.0" layoutY="139.0" prefHeight="344.0" prefWidth="662.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 30px; -fx-border-color: #a6a6a6; -fx-border-width: 7px; -fx-border-radius: 20px;">
                            <children>
-                              <Text id="TextQuestion" fill="#292936" layoutX="24.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Daniël Möller is _________ ! " textAlignment="CENTER" wrappingWidth="614.2523410601124">
+                              <Text fx:id="textQuestion" fill="#292936" layoutX="24.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Daniël Möller is _________ ! " textAlignment="CENTER" wrappingWidth="614.2523410601124">
                                  <font>
                                     <Font name="Berlin Sans FB Demi Bold" size="40.0" />
                                  </font>
                               </Text>
                            </children></Pane>
                         <Pane id="PaneVraag" layoutX="79.0" layoutY="38.0" prefHeight="75.0" prefWidth="223.0" style="-fx-background-color: white; -fx-background-radius: 20px; -fx-border-color: rgba(229, 89, 50, 1); -fx-border-radius: 15px; -fx-border-width: 5;" />
-                        <Text id="TextVraag" fill="#292936" layoutX="90.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vraag 1" textAlignment="CENTER" wrappingWidth="200.45247533745615">
+                        <Text fx:id="textQuestionNumber" fill="#292936" layoutX="90.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vraag 1" textAlignment="CENTER" wrappingWidth="200.45247533745615">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="48.0" />
                            </font>
                         </Text>
-                        <Pane id="AnswerBorderA" layoutX="267.0" layoutY="511.0" prefHeight="84.0" prefWidth="287.0" style="-fx-border-color: #a6a6a6; -fx-border-width: 5px; -fx-border-radius: 15px;" />
-                        <Pane id="AnswerBorderB" layoutX="457.0" layoutY="634.0" prefHeight="84.0" prefWidth="287.0" style="-fx-border-color: #a6a6a6; -fx-border-width: 5px; -fx-border-radius: 15px;" />
-                        <Pane id="AnswerBorderC" layoutX="267.0" layoutY="752.0" prefHeight="84.0" prefWidth="287.0" style="-fx-border-color: #a6a6a6; -fx-border-width: 5px; -fx-border-radius: 15px;" />
-                        <Pane id="AnswerBorderD" layoutX="77.0" layoutY="634.0" prefHeight="84.0" prefWidth="287.0" style="-fx-border-color: #a6a6a6; -fx-border-width: 5px; -fx-border-radius: 15px;" />
-                        <Button id="ButtonC" layoutX="269.0" layoutY="756.0" mnemonicParsing="false" onAction="#onAnswerButtonCClicked" prefHeight="75.0" prefWidth="282.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 15px;" text="C">
+                        <Pane fx:id="AnswerBorderA" layoutX="267.0" layoutY="511.0" prefHeight="84.0" prefWidth="287.0" style="-fx-border-color: #a6a6a6; -fx-border-width: 5px; -fx-border-radius: 15px;" />
+                        <Button fx:id="ButtonA" layoutX="269.0" layoutY="515.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="282.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 15px; -fx-font-size: 30px; -fx-font-family: 'Berlin Sans FB Demi';" text="A">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="40.0" />
                            </font>
                         </Button>
-                        <Button id="ButtonD" layoutX="79.0" layoutY="638.0" mnemonicParsing="false" onAction="#onAnswerButtonDClicked" prefHeight="75.0" prefWidth="282.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 15px;" text="D">
+                        <Pane fx:id="AnswerBorderB" layoutX="457.0" layoutY="634.0" prefHeight="84.0" prefWidth="287.0" style="-fx-border-color: #a6a6a6; -fx-border-width: 5px; -fx-border-radius: 15px;" />
+                        <Button fx:id="ButtonB" layoutX="459.0" layoutY="638.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="282.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 15px; -fx-font-size: 30px; -fx-font-family: 'Berlin Sans FB Demi';" text="B">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="40.0" />
                            </font>
                         </Button>
-                        <Button id="ButtonA" layoutX="269.0" layoutY="515.0" mnemonicParsing="false" onAction="#onAnswerButtonAClicked" prefHeight="75.0" prefWidth="282.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 15px;" text="A">
+                        <Pane fx:id="AnswerBorderC" layoutX="267.0" layoutY="752.0" prefHeight="84.0" prefWidth="287.0" style="-fx-border-color: #a6a6a6; -fx-border-width: 5px; -fx-border-radius: 15px;" />
+                        <Button fx:id="ButtonC" layoutX="269.0" layoutY="756.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="282.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 15px; -fx-font-size: 30px; -fx-font-family: 'Berlin Sans FB Demi';" text="C">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="40.0" />
                            </font>
                         </Button>
-                        <Button id="ButtonB" layoutX="459.0" layoutY="638.0" mnemonicParsing="false" onAction="#onAnswerButtonBClicked" prefHeight="75.0" prefWidth="282.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 15px;" text="B">
+                        <Pane fx:id="AnswerBorderD" layoutX="77.0" layoutY="634.0" prefHeight="84.0" prefWidth="287.0" style="-fx-border-color: #a6a6a6; -fx-border-width: 5px; -fx-border-radius: 15px;" />
+                        <Button fx:id="ButtonD" layoutX="79.0" layoutY="638.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="282.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 15px; -fx-font-size: 30px; -fx-font-family: 'Berlin Sans FB Demi';" text="D">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="40.0" />
                            </font>

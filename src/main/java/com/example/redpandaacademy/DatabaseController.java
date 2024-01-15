@@ -121,7 +121,7 @@ public class DatabaseController {
                     "`antwoord2` varchar(255) NOT NULL," +
                     "`antwoord3` varchar(255) NOT NULL," +
                     "`antwoord4` varchar(255) NOT NULL," +
-                    "`goedAntwoord` int(1) NOT NULL," +
+                    "`goedAntwoord` varchar(1) NOT NULL," +
                     "`leerprogrammaID` int(5) NOT NULL," +
                     "PRIMARY KEY (`vraagID`)," +
                     "FOREIGN KEY (leerprogrammaID) REFERENCES leerprogramma(leerprogrammaID))");
@@ -141,9 +141,9 @@ public class DatabaseController {
                     "(3, 'De vuur draak', '/img/dragon.png', 'Beschrijving 3', 'Type 3', '#ff6767', '#ff4c4c', '#8d8d8d')");
 
             statement.executeUpdate("INSERT INTO `vraag` VALUES " +
-                    "(1, 'Vraag 1?', 'Antwoord 1.1', 'Antwoord 1.2', 'Antwoord 1.3', 'Antwoord 1.4', 1, 1), " +
-                    "(2, 'Vraag 2?', 'Antwoord 2.1', 'Antwoord 2.2', 'Antwoord 2.3', 'Antwoord 2.4', 1, 1), " +
-                    "(3, 'Vraag 3?', 'Antwoord 3.1', 'Antwoord 3.2', 'Antwoord 3.3', 'Antwoord 3.4', 1, 1)");
+                    "(1, 'Vraag 1?', 'Antwoord 1.1', 'Antwoord 1.2', 'Antwoord 1.3', 'Antwoord 1.4', 'A', 1), " +
+                    "(2, 'Vraag 2?', 'Antwoord 2.1', 'Antwoord 2.2', 'Antwoord 2.3', 'Antwoord 2.4', 'B', 1), " +
+                    "(3, 'Vraag 3?', 'Antwoord 3.1', 'Antwoord 3.2', 'Antwoord 3.3', 'Antwoord 3.4', 'C', 1)");
 
             statement.executeUpdate("INSERT INTO `useraccount` VALUES " +
                     "(1, 'test@mail.com', 'test123!', 'gebruiker', 'fname', 'lname', 21, 'user')");
