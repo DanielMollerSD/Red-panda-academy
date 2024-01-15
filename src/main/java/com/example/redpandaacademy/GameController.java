@@ -10,23 +10,34 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
 
 public class GameController implements Initializable {
 
-    private int leerprogrammaID;
-
-    public void initialize(int leerprogrammaID) {
-        System.out.println("First init");
-        this.leerprogrammaID = leerprogrammaID;
-    }
+    private DatabaseController databaseController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Second init");
-        System.out.println(leerprogrammaID);
+        // Initialize the database controller
+        databaseController = new DatabaseController();
+    }
+    public void initializeWithData(int leerprogrammaID) {
+        System.out.println("LeerprogrammaID: " + leerprogrammaID);
+        try {
+            ResultSet questionsResultSet = databaseController.fetchQuestionData(leerprogrammaID);
+
+            while (questionsResultSet.next()) {
+                String vraag = questionsResultSet.getString("vraag");
+                System.out.println(vraag);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -90,5 +101,4 @@ public class GameController implements Initializable {
     private void onAnswerButtonDClicked(ActionEvent event) throws IOException {
 
     }
-
 }

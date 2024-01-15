@@ -140,7 +140,7 @@ public class HelloViewController implements Initializable {
                         throw new RuntimeException(e);
                     }
                     GameController gameController = fxmlLoader.getController();
-                    gameController.initialize(leerprogrammaID);
+                    gameController.initializeWithData(leerprogrammaID);
 
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.setScene(new Scene(newTemplate, 1920, 1080));
