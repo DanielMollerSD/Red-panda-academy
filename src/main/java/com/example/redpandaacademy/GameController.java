@@ -52,6 +52,7 @@ public class GameController implements Initializable {
     private DatabaseController databaseController;
     private MicrobitController microbitController;
     private ResultSet questionsResultSet;
+    private int questionID;
     private String answer= "";
     private String correctAnwer= "";
     private int questionCounter = 1;
@@ -70,34 +71,8 @@ public class GameController implements Initializable {
     public void initializeWithData(int leerprogrammaID) {
         try {
             questionsResultSet = databaseController.fetchQuestionData(leerprogrammaID);
-            displayNextQuestion();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void displayNextQuestion() {
-        try {
             if (questionsResultSet.next()) {
-                String question = questionsResultSet.getString("vraag");
-                String answer1 = questionsResultSet.getString("antwoord1");
-                String answer2 = questionsResultSet.getString("antwoord2");
-                String answer3 = questionsResultSet.getString("antwoord3");
-                String answer4 = questionsResultSet.getString("antwoord4");
-                String goodAnswer = questionsResultSet.getString("goedAntwoord");
-
-                Platform.runLater(() -> {
-                    textQuestionNumber.setText("Vraag " + questionCounter);
-                    textQuestion.setText(question);
-                    ButtonA.setText(answer1);
-                    ButtonB.setText(answer2);
-                    ButtonC.setText(answer3);
-                    ButtonD.setText(answer4);
-                    correctAnwer = goodAnswer;
-                    questionCounter++;
-                });
-
+                displayNextQuestion(questionsResultSet);
             } else {
                 System.out.println("No more questions");
             }
@@ -106,13 +81,44 @@ public class GameController implements Initializable {
         }
     }
 
+    private void displayNextQuestion(ResultSet questionsResultSet) {
+        try {
+            questionID = questionsResultSet.getInt("vraagID");
+            String question = questionsResultSet.getString("vraag");
+            String answer1 = questionsResultSet.getString("antwoord1");
+            String answer2 = questionsResultSet.getString("antwoord2");
+            String answer3 = questionsResultSet.getString("antwoord3");
+            String answer4 = questionsResultSet.getString("antwoord4");
+            String goodAnswer = questionsResultSet.getString("goedAntwoord");
+
+            Platform.runLater(() -> {
+                textQuestionNumber.setText("Vraag " + questionCounter);
+                textQuestion.setText(question);
+                ButtonA.setText(answer1);
+                ButtonB.setText(answer2);
+                ButtonC.setText(answer3);
+                ButtonD.setText(answer4);
+                correctAnwer = goodAnswer;
+                questionCounter++;
+            });
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void checkAnswer() {
+        int userID = 1;
         if (correctAnwer.isEmpty()) {
             System.out.println("First question/no answer yet");
-        } else if (correctAnwer.equals(answer)) {
-            System.out.println("Correct");
         } else {
-            System.out.println("Not correct");
+            boolean isCorrect = correctAnwer.equals(answer);
+            System.out.println(isCorrect ? "Correct" : "Not correct");
+
+            try {
+                databaseController.insertProgressData(questionID, userID, isCorrect ? "goed" : "fout");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -180,9 +186,33 @@ public class GameController implements Initializable {
         answer = data;
     }
     public void onMicrobitButtonSClick(String data) {
-        displayNextQuestion();
         checkAnswer();
+        try {
+            if (questionsResultSet.next()) {
+                displayNextQuestion(questionsResultSet);
+            } else {
+                // Load the homepage.fxml file
+                Platform.runLater(() -> {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+                    try {
+                        Parent newTemplate = fxmlLoader.load();
+
+                        // Set the new scene
+                        Stage stage = (Stage) textQuestion.getScene().getWindow();
+                        stage.setScene(new Scene(newTemplate, 1920, 1080));
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    Thread.currentThread().interrupt();
+                });
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+
 
 
     private void handleButtonClicked(Pane clickedPane) {

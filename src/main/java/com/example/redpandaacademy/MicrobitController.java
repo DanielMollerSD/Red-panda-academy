@@ -15,7 +15,7 @@ public class MicrobitController implements Runnable {
 
         for (SerialPort port : ports) {
             System.out.println(port.getDescriptivePortName());
-            if (port.getDescriptivePortName().contains("COM3")) {
+            if (port.getDescriptivePortName().contains("COM5")) {
                 microBitPort = port;
                 break;
             }

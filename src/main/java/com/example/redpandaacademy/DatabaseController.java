@@ -59,6 +59,21 @@ public class DatabaseController {
         return statement.executeQuery(sqlQuery);
     }
 
+    public void insertProgressData(int questionID, int useraccountID, String questionStatus) throws SQLException {
+        String sqlQuery = "INSERT INTO progressie (vraag_status, useraccountID, vraagID) VALUES (?, ?, ?) " +
+                "ON DUPLICATE KEY UPDATE vraag_status = VALUES(vraag_status)";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+            preparedStatement.setString(1, questionStatus);
+            preparedStatement.setInt(2, useraccountID);
+            preparedStatement.setInt(3, questionID);
+
+            preparedStatement.executeUpdate();
+        }
+    }
+
+
+
     public void closeConnection() throws SQLException {
         if (connection != null && !connection.isClosed()) {
             connection.close();
@@ -132,8 +147,10 @@ public class DatabaseController {
                     "`useraccountID` int(5) NOT NULL," +
                     "`vraagID` int(10) NOT NULL," +
                     "PRIMARY KEY (`progressieID`)," +
+                    "UNIQUE KEY `unique_progressie` (`useraccountID`, `vraagID`)," +
                     "FOREIGN KEY (useraccountID) REFERENCES useraccount(useraccountID)," +
                     "FOREIGN KEY (vraagID) REFERENCES vraag(vraagID))");
+
 
             statement.executeUpdate("INSERT INTO `leerprogramma` VALUES " +
                     "(1, 'De boze tovenaar', '/img/Evil Wizard.png', 'Beschrijving 1', 'Type 1', '#d2d6f1', '#acb0cc', '#684fa2'), " +

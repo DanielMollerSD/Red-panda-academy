@@ -18,7 +18,7 @@ public class HelloController  {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
@@ -27,7 +27,7 @@ public class HelloController  {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("register.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
@@ -36,7 +36,7 @@ public class HelloController  {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
@@ -45,7 +45,7 @@ public class HelloController  {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("homepage.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
@@ -54,7 +54,7 @@ public class HelloController  {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
@@ -63,7 +63,7 @@ public class HelloController  {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("terms.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
@@ -72,7 +72,7 @@ public class HelloController  {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("faq.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
@@ -81,7 +81,7 @@ public class HelloController  {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("contact.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
@@ -90,7 +90,7 @@ public class HelloController  {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("account.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
@@ -99,7 +99,7 @@ public class HelloController  {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profile.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
@@ -108,7 +108,7 @@ public class HelloController  {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("game.fxml"));
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Fix the case here
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }

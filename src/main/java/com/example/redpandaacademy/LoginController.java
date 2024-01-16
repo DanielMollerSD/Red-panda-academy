@@ -17,7 +17,6 @@ import java.util.ResourceBundle;
 public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Initialization code goes here
     }
 
     @FXML
