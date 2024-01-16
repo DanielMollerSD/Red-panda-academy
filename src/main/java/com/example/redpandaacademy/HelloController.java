@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloController  {
+public class HelloController {
 
     @FXML
     private void onLoginButtonClick(ActionEvent event) throws IOException {
@@ -22,6 +22,7 @@ public class HelloController  {
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
+
     @FXML
     private void onBeginnuButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("register.fxml"));
@@ -31,6 +32,7 @@ public class HelloController  {
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
+
     @FXML
     private void onHebaccountButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
@@ -40,6 +42,7 @@ public class HelloController  {
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
+
     @FXML
     public void onLogoButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("homepage.fxml"));
@@ -49,15 +52,7 @@ public class HelloController  {
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
-    @FXML
-    public void onTestButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-        Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(newTemplate, 1920, 1080));
-        stage.show();
-    }
     @FXML
     public void onTermsButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("terms.fxml"));
@@ -67,6 +62,7 @@ public class HelloController  {
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
+
     @FXML
     public void onFaqButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("faq.fxml"));
@@ -76,6 +72,7 @@ public class HelloController  {
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
+
     @FXML
     public void onContactButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("contact.fxml"));
@@ -85,6 +82,17 @@ public class HelloController  {
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
+
+    /*@FXML
+    public void onTestButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+        Parent newTemplate = fxmlLoader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(newTemplate, 1920, 1080));
+        stage.show();
+    }
+
     @FXML
     public void onTest2ButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("account.fxml"));
@@ -94,6 +102,7 @@ public class HelloController  {
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
+
     @FXML
     public void onTest3ButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profile.fxml"));
@@ -103,6 +112,7 @@ public class HelloController  {
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
     }
+
     @FXML
     public void onTest4ButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("game.fxml"));
@@ -111,5 +121,5 @@ public class HelloController  {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1920, 1080));
         stage.show();
-    }
+    }*/
 }
